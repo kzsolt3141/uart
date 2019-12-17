@@ -11,9 +11,11 @@
 #include <stdio.h>
 #include <avr/interrupt.h>
 
+//------------------------------------------------
+//               DEFINES
+//------------------------------------------------
 // CPU frequency, set to the value of the quartz connected to the microcontroller
 #define F_CPU 8000000UL
-#include <util/delay.h>
 
 // define USART baud rate, this value will be identical with the baud rate of the COM port 
 // in windows with which the microcontroller communicates with PC (see Device Manager!!)
@@ -25,12 +27,12 @@
 /**
  * Initialize UART related registers
  */
-extern void USARTInit();
+void USARTInit();
 
 /**
  * Send out the character trough USART.
  */
-extern void USART_char_send(char *c);
+void USART_char_send(char *c);
 
 /**
  * Character received from UART is saved in this variable.
