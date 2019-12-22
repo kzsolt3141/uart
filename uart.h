@@ -10,12 +10,11 @@
 
 #include <stdio.h>
 #include <avr/interrupt.h>
+#include "m8_def/m8_def.h"
 
 //------------------------------------------------
 //               DEFINES
 //------------------------------------------------
-// CPU frequency, set to the value of the quartz connected to the microcontroller
-#define F_CPU 8000000UL
 
 // define USART baud rate, this value will be identical with the baud rate of the COM port 
 // in windows with which the microcontroller communicates with PC (see Device Manager!!)
