@@ -10,12 +10,12 @@
 
 int main(void)
 {
-	USARTInit(); 
+    USARTInit(); 
     printf("Init Done usbasp\n\r");
-	
+    
 // infinite loop
     while(1) {
-		printf("%c\n", USART_ReadByte);
-		_delay_ms(1000);
+        printf("%c\n", USART_ReadByte);
+        _delay_ms(1000);
     }
 }
