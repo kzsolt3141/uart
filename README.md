@@ -13,3 +13,7 @@ Remove extern, and extra files.
 1.0.3 (2019.12.22)
 ---------------------
 Replace tabs with spaces
+
+1.0.4 (2019.12.22)
+---------------------
+Use submodule for global defines
