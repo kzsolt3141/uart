@@ -1,10 +1,12 @@
 /*
- * USART_tools.c
+ * uart.c
  *
  * Created: 12/21/2016 10:46:13 PM
  *  Author: Zsolt
  */ 
 
+#include <stdio.h>
+#include <avr/interrupt.h>
 #include "uart.h"
 
 static int USART_printf(char c, FILE *stream);

@@ -1,5 +1,5 @@
 /*
- * USART_tools.h
+ * uart.h
  *
  * Created: 12/21/2016 10:47:01 PM
  *  Author: Zsolt
@@ -8,9 +8,8 @@
 #ifndef USART_TOOLS_H_
 #define USART_TOOLS_H_
 
-#include <stdio.h>
-#include <avr/interrupt.h>
-#include "m8_def/m8_def.h"
+#include <stdint.h>
+#include <util/delay.h>
 
 //------------------------------------------------
 //               DEFINES

@@ -1,11 +1,12 @@
 /*
- * AVR_Gyro.c
+ * main.c
  *
  * Created: 12/21/2016 10:44:40 PM
  *  Author: Zsolt
  */ 
 
 #include "uart.h"
+#include <stdio.h>
 #include <util/delay.h>
 
 int main(void)
@@ -15,7 +16,7 @@ int main(void)
     
 // infinite loop
     while(1) {
-        printf("%c\n", USART_ReadByte);
+        printf("received: %c\n", USART_ReadByte);
         _delay_ms(1000);
     }
 }

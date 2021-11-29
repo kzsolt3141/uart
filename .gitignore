@@ -1,2 +1,3 @@
-uart/Debug/
-uart/.vs/*
+.vscode
+*.bin
+*.hex
