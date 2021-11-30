@@ -12,8 +12,9 @@
 static int USART_printf(char c, FILE *stream);
 static FILE mystdout = FDEV_SETUP_STREAM(USART_printf, NULL, _FDEV_SETUP_WRITE);
 
- void USARTInit ()
-{
+uint8_t USART_ReadByte;
+
+ void USARTInit () {
     cli();                                // disable all interrupts
     UCSRB |= (1 << RXEN)  | (1 << TXEN);  // Turn on the transmission and reception circuitry
     UCSRB |= (1 << RXCIE);                // interrupt in receive complete

@@ -9,8 +9,7 @@
 #include <stdio.h>
 #include <util/delay.h>
 
-int main(void)
-{
+int main(void) {
     USARTInit(); 
     printf("Init Done usbasp\n\r");
     

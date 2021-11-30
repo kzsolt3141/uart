@@ -35,6 +35,6 @@ void USART_char_send(char *c);
 /**
  * Character received from UART is saved in this variable.
  */
-uint8_t USART_ReadByte;
+extern uint8_t USART_ReadByte;
 
 #endif /* USART_TOOLS_H_ */
