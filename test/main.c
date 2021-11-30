@@ -11,11 +11,11 @@
 
 int main(void) {
     USARTInit(); 
-    printf("Init Done usbasp\n\r");
+    printf("Init Done usbasp\n");
     
 // infinite loop
     while(1) {
-        printf("received: %c\n", USART_ReadByte);
+        printf("r: %c\n", USART_ReadByte);
         _delay_ms(1000);
     }
 }
