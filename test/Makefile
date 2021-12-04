@@ -3,9 +3,9 @@ F_CPU=8000000
 CC=avr-gcc
 OBJCOPY=avr-objcopy
 MEMCHECK=avr-size
-IFLAGS=../
+IFLAGS=-I../
 
-CFLAGS=-std=c11 -Wall -g -O3 -mmcu=${MCU} -DF_CPU=${F_CPU} -I ${IFLAGS}
+CFLAGS=-std=c11 -Wall -g -O3 -mmcu=${MCU} -DF_CPU=${F_CPU} ${IFLAGS}
 TARGET=main
 SRCS=main.c ../uart.c
 
