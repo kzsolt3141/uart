@@ -1,3 +1,7 @@
+1.0.7 (2021.12.07)
+---------------------
+Add status to init function, enable/disable isr
+
 1.0.6 (2021.12.04)
 ---------------------
 Add RX ISR callback support, refactor code

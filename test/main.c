@@ -34,9 +34,9 @@ int main(void) {
     uint8_t sts = 0;
     struct USART_RXC_cb_ctx_t USART_RXC_ctx = {};
 
-    USART_init(baud_rate);
+    regiter_USART_RXC_cb(USART_RXC_cb_handle, &USART_RXC_ctx);
 
-    sts = regiter_USART_RXC_cb(USART_RXC_cb_handle, &USART_RXC_ctx);
+    sts = USART_init(baud_rate, 1);
     if (sts) return sts;
 
     printf("Init Done UART baud: %u\n", (uint16_t)baud_rate);
