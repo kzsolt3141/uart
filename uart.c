@@ -14,12 +14,16 @@
 
 static USART_RXC_cb  USART_cb_     = NULL;
 static void         *USART_cb_ctx_ = NULL;
-static uint8_t       isr_set_      = 0;
 
 static int USART_printf(char c, FILE *stream);
 static FILE mystdout = FDEV_SETUP_STREAM(USART_printf, NULL, _FDEV_SETUP_WRITE);
 
- uint8_t USART_init (uint32_t baud_rate, uint8_t isr_en) {
+void regiter_USART_RXC_cb(USART_RXC_cb cb, void* ctx) {
+    USART_cb_ = cb;
+    USART_cb_ctx_ = ctx;
+}
+
+void USART_init (uint32_t baud_rate) {
      // calculate from Baud rate the pre-scaler value for the microcontroller baud rate counter
      const uint16_t baud_prescale =  (((F_CPU / (baud_rate * 16UL))) - 1);
 
@@ -27,8 +31,7 @@ static FILE mystdout = FDEV_SETUP_STREAM(USART_printf, NULL, _FDEV_SETUP_WRITE);
 
     UCSRB = (1 << RXEN)  | (1 << TXEN);   // Turn on the transmission and reception circuitry
 
-    if (isr_en) {
-        if (!isr_set_) return 1;
+    if (USART_cb_) {
         UCSRB |= (1 << RXCIE);                // interrupt in receive complete
     }
 
@@ -38,8 +41,6 @@ static FILE mystdout = FDEV_SETUP_STREAM(USART_printf, NULL, _FDEV_SETUP_WRITE);
     stdout = &mystdout;                   // Required for printf initialization
 
     sei();                                // enable interrupts
-
-    return 0;
 }
 
 void USART_char_send(char c) {
@@ -50,17 +51,6 @@ void USART_char_send(char c) {
 static int USART_printf(char c, FILE *stream) {
     USART_char_send(c);
     return 0;
-}
-
-void regiter_USART_RXC_cb(USART_RXC_cb cb, void* ctx) {
-    if (cb) {
-        USART_cb_ = cb;
-    } else {
-        return;
-    }
-
-    USART_cb_ctx_ = ctx;
-    isr_set_ = 1;
 }
 
 // Interrupt service routine for receive complete: each time a character is sent from serial terminal 

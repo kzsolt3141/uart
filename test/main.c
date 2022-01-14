@@ -36,7 +36,7 @@ int main(void) {
 
     regiter_USART_RXC_cb(USART_RXC_cb_handle, &USART_RXC_ctx);
 
-    sts = USART_init(baud_rate, 1);
+    USART_init(baud_rate);
     if (sts) return sts;
 
     printf("Init Done UART baud: %u\n", (uint16_t)baud_rate);

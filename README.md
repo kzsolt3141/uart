@@ -1,3 +1,7 @@
+1.0.8 (2022.01.14)
+---------------------
+Simplify ISR registration over API
+
 1.0.7 (2021.12.07)
 ---------------------
 Add status to init function, enable/disable isr
