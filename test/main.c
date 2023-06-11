@@ -26,6 +26,8 @@ static void USART_RXC_cb_handle(void* ctx) {
 
     t_ctx->rx = UDR;
     t_ctx->cnt++;
+
+    printf("r: %c i: %d\n", t_ctx->rx, t_ctx->cnt);
 }
 
 int main(void) {
@@ -42,10 +44,7 @@ int main(void) {
     printf("Init Done UART baud: %u\n", (uint16_t)baud_rate);
     
 // infinite loop
-    while(1) {
-        printf("r: %c i: %d\n", USART_RXC_ctx.rx, USART_RXC_ctx.cnt);
-        _delay_ms(1000);
-    }
+    while(1) {}
 
     return sts;
 }
