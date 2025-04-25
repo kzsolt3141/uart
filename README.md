@@ -1,3 +1,8 @@
+1.0.9 (2025.04.25)
+---------------------
+Update to GCC 14.1.0
+Resolve build warnings
+
 1.0.8 (2022.01.14)
 ---------------------
 Simplify ISR registration over API
