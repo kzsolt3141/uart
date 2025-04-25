@@ -43,7 +43,7 @@ int main(void) {
 
     printf("Init Done UART baud: %u\n", (uint16_t)baud_rate);
     
-// infinite loop
+    // infinite loop
     while(1) {}
 
     return sts;

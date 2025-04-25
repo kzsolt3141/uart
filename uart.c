@@ -32,7 +32,7 @@ void USART_init (uint32_t baud_rate) {
     UCSRB = (1 << RXEN)  | (1 << TXEN);   // Turn on the transmission and reception circuitry
 
     if (USART_cb_) {
-        UCSRB |= (1 << RXCIE);                // interrupt in receive complete
+        UCSRB |= (1 << RXCIE);            // interrupt in receive complete
     }
 
     UCSRC |= (1 << UCSZ0) | (1 << UCSZ1); // Use 8-bit character sizes
@@ -49,6 +49,7 @@ void USART_char_send(char c) {
 }
 
 static int USART_printf(char c, FILE *stream) {
+    (void)stream;  // unused variable
     USART_char_send(c);
     return 0;
 }
